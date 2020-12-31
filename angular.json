@@ -118,6 +118,46 @@
           }
         }
       }
+    },
+    "acomi-helpers": {
+      "projectType": "library",
+      "root": "projects/acomi-helpers",
+      "sourceRoot": "projects/acomi-helpers/src",
+      "prefix": "acomi",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/acomi-helpers/tsconfig.lib.json",
+            "project": "projects/acomi-helpers/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/acomi-helpers/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/acomi-helpers/src/test.ts",
+            "tsConfig": "projects/acomi-helpers/tsconfig.spec.json",
+            "karmaConfig": "projects/acomi-helpers/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/acomi-helpers/tsconfig.lib.json",
+              "projects/acomi-helpers/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "acomici-helpers"
